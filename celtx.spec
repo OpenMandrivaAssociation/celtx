@@ -7,7 +7,7 @@ Summary:	%Summary
 Name:		%name
 Version:	%version
 Release:	%release
-License:	MPL style
+License:	MPL-like
 Group:		Office 
 URL:		http://www.celtx.com
 Source0:	http://www.celtx.com/download/%{name}-0997-src.tar.bz2
