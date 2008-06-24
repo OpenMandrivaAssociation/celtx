@@ -1,5 +1,5 @@
 %define name	celtx
-%define version	0.9.9.7
+%define version	1.0
 %define release	%mkrel 1
 %define Summary	Celtx : preproduction media application
 
@@ -10,7 +10,7 @@ Release:	%release
 License:	MPL-like
 Group:		Office 
 URL:		http://www.celtx.com
-Source0:	http://www.celtx.com/download/%{name}-0997-src.tar.bz2
+Source0:	http://www.celtx.com/download/%{name}-10-src.tar.bz2
 Source1:	celtx-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	libjpeg-devel
@@ -33,10 +33,9 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 
 %prep
-%setup -q -n %{name}-0997-src
+%setup -q -n mozilla
 
 %build
-cd mozilla
 cp mozconfig-nodebug-linux .mozconfig
 echo "ac_add_options --enable-system-cairo" >>.mozconfig
 make -f client.mk build
@@ -50,7 +49,6 @@ tar -C $RPM_BUILD_ROOT%{_iconsdir} -jxf %{SOURCE1}
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-16.png $RPM_BUILD_ROOT%{_iconsdir}/mini/celtx.png
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-32.png $RPM_BUILD_ROOT%{_iconsdir}/celtx.png
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-48.png $RPM_BUILD_ROOT%{_iconsdir}/large/celtx.png
-cd mozilla
 make -C ../objdir/celtx/installer
 cp -a ../objdir/dist/celtx ${RPM_BUILD_ROOT}%{_libdir}/%{name}-%{version}
 mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-%{version}/%{name} ${RPM_BUILD_ROOT}%{_bindir}/%{name}
