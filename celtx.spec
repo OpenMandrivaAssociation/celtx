@@ -1,6 +1,6 @@
 %define name	celtx
 %define version	1.0
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define Summary	Celtx : preproduction media application
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
