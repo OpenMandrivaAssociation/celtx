@@ -3,6 +3,8 @@
 %define release	%mkrel 1
 %define Summary	Celtx : preproduction media application
 
+%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+
 Summary:	%Summary
 Name:		%name
 Version:	%version
