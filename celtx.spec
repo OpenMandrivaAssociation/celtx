@@ -1,7 +1,10 @@
 %define name	celtx
 %define version	1.0
-%define release	%mkrel 2
+%define release	%mkrel 3
 %define Summary	Celtx : preproduction media application
+
+#define is10list	bg ca cs da de el en-US es-ES fa fi fr he hu it ja ko nb-NO nl pl pt-BR pt-PT ro ru sl sv-SE tr zh-CN zh-TW
+%define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
@@ -13,7 +16,8 @@ License:	MPL-like
 Group:		Office 
 URL:		http://www.celtx.com
 Source0:	http://www.celtx.com/download/%{name}-10-src.tar.bz2
-Source1:	celtx-icons.tar.bz2
+Source1:	http://www.celtx.com/download/%{name}-10-l10n.tar.bz2
+Source2:	celtx-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
@@ -27,65 +31,55 @@ BuildRequires:	libgnomeui2-devel
 BuildRequires:  krb-devel
 
 
+#---------------------------------
+# common files
 %description
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
+Celtx common files
+
+%files
+%defattr(0755,root,root,0755)
+%{_iconsdir}/*
+#---------------------------------
+
+#---------------------------------
+# Expand all packages.
+%{expand:%(\
+        for lang in %is10list; do\
+                echo "%%{expand:%%(sed "s!__LANG__!$lang!g" %{_sourcedir}/%{name}-spec.tmpl 2> /dev/null)}";\
+        done\
+        )
+}
+#---------------------------------
 
 %prep
 %setup -q -n mozilla
+cd ../
+tar -jxf %{SOURCE1}
 
 %build
-cp mozconfig-nodebug-linux .mozconfig
-echo "ac_add_options --enable-system-cairo" >>.mozconfig
-make -f client.mk build
+for l10n in %is10list; do
+	cp -f mozconfig-nodebug-linux .mozconfig
+	sed -i -e s/objdir/objdir-$l10n/ .mozconfig
+	sed -i -e s/en-US/$l10n/ .mozconfig
+	make -f client.mk clean
+	make -f client.mk build
+done
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_libdir}
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
 mkdir -p $RPM_BUILD_ROOT%{_iconsdir}/{mini,large}
-tar -C $RPM_BUILD_ROOT%{_iconsdir} -jxf %{SOURCE1}
+tar -C $RPM_BUILD_ROOT%{_iconsdir} -jxf %{SOURCE2}
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-16.png $RPM_BUILD_ROOT%{_iconsdir}/mini/celtx.png
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-32.png $RPM_BUILD_ROOT%{_iconsdir}/celtx.png
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-48.png $RPM_BUILD_ROOT%{_iconsdir}/large/celtx.png
-make -C ../objdir/celtx/installer
-cp -a ../objdir/dist/celtx ${RPM_BUILD_ROOT}%{_libdir}/%{name}-%{version}
-mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-%{version}/%{name} ${RPM_BUILD_ROOT}%{_bindir}/%{name}
-sed -i -e 's/local//g' ${RPM_BUILD_ROOT}%{_bindir}/%{name}
-
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/%{name}.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/%{name}
-Icon=%{name}.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
+for l10n in %is10list; do
+	make -C ../objdir-$l10n/celtx/installer
+	cp -a ../objdir-$l10n/dist/celtx ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n
+	mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name} ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
+	sed -i -e 's/local//g' ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
+done
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
-%files
-%defattr(0755,root,root,0755)
-%{_bindir}/*
-%{_libdir}/%{name}-%{version}
-%{_datadir}/*
-%{_iconsdir}/*
