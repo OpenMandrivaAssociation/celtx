@@ -61,7 +61,7 @@ for l10n in %is10list; do
 	cp -f mozconfig-nodebug-linux .mozconfig
 	sed -i -e s/objdir/objdir-$l10n/ .mozconfig
 	sed -i -e s/en-US/$l10n/ .mozconfig
-	make -f client.mk build
+	make -f client.mk build >/dev/null
 done
 
 %install
