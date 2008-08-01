@@ -3,8 +3,8 @@
 %define release	%mkrel 3
 %define Summary	Celtx : preproduction media application
 
-#define is10list	bg ca cs da de el en-US es-ES fa fi fr he hu it ja ko nb-NO nl pl pt-BR pt-PT ro ru sl sv-SE tr zh-CN zh-TW
 %define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
+#define is10list	en-US
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
@@ -59,9 +59,12 @@ tar -jxf %{SOURCE1}
 %build
 for l10n in %is10list; do
 	cp -f mozconfig-nodebug-linux .mozconfig
+	rm -rf ../objdir-$l10n
 	sed -i -e s/objdir/objdir-$l10n/ .mozconfig
 	sed -i -e s/en-US/$l10n/ .mozconfig
 	make -f client.mk build >/dev/null 2>&1
+	find ../objdir-$l10n -type f -name "*.o" -exec rm {} \;
+	find ../objdir-$l10n -type f -name "*.a" -exec rm {} \;
 done
 
 %install
