@@ -82,7 +82,8 @@ for l10n in %is10list; do
 	make -C ../objdir-$l10n/celtx/installer
 	cp -a ../objdir-$l10n/dist/celtx ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n
 	mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name} ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
-	sed -i -e 's/local//g' ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
+	sed -i -e 's!local!!g' ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
+	sed -i -e 's!moz_libdir=/usr/lib!moz_libdir=%{_libdir}!' ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
 done
 
 %clean
