@@ -26,7 +26,6 @@ BuildRequires:	libpng-devel
 BuildRequires:	libIDL-devel
 BuildRequires:  zip tcsh
 BuildRequires:  libxft-devel
-BuildRequires:	libxt-devel
 BuildRequires:  gtk+2-devel >= 2.4.0
 BuildRequires:  gnome-vfs2-devel
 BuildRequires:	libgnomeui2-devel
