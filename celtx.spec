@@ -3,8 +3,8 @@
 %define release	%mkrel 4
 %define Summary	Celtx : preproduction media application
 
-%define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
-#define is10list	en-US
+#define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
+%define is10list	en-US
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
