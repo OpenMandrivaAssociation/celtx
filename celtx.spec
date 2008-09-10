@@ -3,7 +3,8 @@
 %define release	%mkrel 5
 %define Summary	Celtx : preproduction media application
 
-%define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
+#define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
+%define is10list	en-US pt-BR ca cs de es-ES fr
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
@@ -337,213 +338,213 @@ EOF
 
 #---------------------------------
 # it
-%package -n celtx-it
+#%package -n celtx-it
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-Summary:	Celtx for it language
-License:	MPL-like
-Group:		Office
-URL:		http://www.celtx.com
-Obsoletes:	celtx-dictionary
-Requires:	celtx
-
-%description -n celtx-it
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
-Package for it language
+#Summary:	Celtx for it language
+#License:	MPL-like
+#Group:		Office
+#URL:		http://www.celtx.com
+#Obsoletes:	celtx-dictionary
+#Requires:	celtx
+#
+#%description -n celtx-it
+#Celtx is the world's first fully integrated solution for media
+#pre-production and collaboration. It replaces old fashioned 'paper,
+#pen & binder' media creation with a digital approach to writing and
+#organizing that's more complete, simpler to work with, and easier
+#to share.
+#Package for it language
 
 #xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-it.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-it
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
+#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-it.desktop <<EOF
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=Celtx
+#Comment=Screenplay Editor
+#Exec=%{_bindir}/celtx-it
+#Icon=celtx.png
+#Terminal=false
+#Type=Application
+#Categories=X-MandrivaLinux-Office-Wordprocessors;
+#EOF
 
-%files -n celtx-it
-%defattr(0755,root,root,0755)
-%_bindir/celtx-it
-%_libdir/celtx-it
+#%files -n celtx-it
+#%defattr(0755,root,root,0755)
+#%_bindir/celtx-it
+#%_libdir/celtx-it
 #---------------------------------
 
 #---------------------------------
 # ro
-%package -n celtx-ro
+#%package -n celtx-ro
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-Summary:	Celtx for ro language
-License:	MPL-like
-Group:		Office
-URL:		http://www.celtx.com
-Obsoletes:	celtx-dictionary
-Requires:	celtx
+#Summary:	Celtx for ro language
+#License:	MPL-like
+#Group:		Office
+#URL:		http://www.celtx.com
+#Obsoletes:	celtx-dictionary
+#Requires:	celtx
 
-%description -n celtx-ro
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
-Package for ro language
+#%description -n celtx-ro
+#Celtx is the world's first fully integrated solution for media
+#pre-production and collaboration. It replaces old fashioned 'paper,
+#pen & binder' media creation with a digital approach to writing and
+#organizing that's more complete, simpler to work with, and easier
+#to share.
+#Package for ro language
+#
+##xdg menu entry
+#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ro.desktop <<EOF
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=Celtx
+#Comment=Screenplay Editor
+#Exec=%{_bindir}/celtx-ro
+#Icon=celtx.png
+#Terminal=false
+#Type=Application
+#Categories=X-MandrivaLinux-Office-Wordprocessors;
+#EOF
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ro.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-ro
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
-%files -n celtx-ro
-%defattr(0755,root,root,0755)
-%_bindir/celtx-ro
-%_libdir/celtx-ro
+#%files -n celtx-ro
+#%defattr(0755,root,root,0755)
+#%_bindir/celtx-ro
+#%_libdir/celtx-ro
 #---------------------------------
 
 
 #---------------------------------
 # ru
-%package -n celtx-ru
+#%package -n celtx-ru
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-Summary:	Celtx for ru language
-License:	MPL-like
-Group:		Office
-URL:		http://www.celtx.com
-Obsoletes:	celtx-dictionary
-Requires:	celtx
+#Summary:	Celtx for ru language
+#License:	MPL-like
+#Group:		Office
+#URL:		http://www.celtx.com
+#Obsoletes:	celtx-dictionary
+#Requires:	celtx
 
-%description -n celtx-ru
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
-Package for ru language
+#%description -n celtx-ru
+#Celtx is the world's first fully integrated solution for media
+#pre-production and collaboration. It replaces old fashioned 'paper,
+#pen & binder' media creation with a digital approach to writing and
+#organizing that's more complete, simpler to work with, and easier
+#to share.
+#Package for ru language
 
 #xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ru.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-ru
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
+#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ru.desktop <<EOF
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=Celtx
+#Comment=Screenplay Editor
+#Exec=%{_bindir}/celtx-ru
+#Icon=celtx.png
+#Terminal=false
+#Type=Application
+#Categories=X-MandrivaLinux-Office-Wordprocessors;
+#EOF
 
-%files -n celtx-ru
-%defattr(0755,root,root,0755)
-%_bindir/celtx-ru
-%_libdir/celtx-ru
+#%files -n celtx-ru
+#%defattr(0755,root,root,0755)
+#%_bindir/celtx-ru
+#%_libdir/celtx-ru
 #---------------------------------
 
 #---------------------------------
 # sl
-%package -n celtx-sl
+#%package -n celtx-sl
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-Summary:	Celtx for sl language
-License:	MPL-like
-Group:		Office
-URL:		http://www.celtx.com
-Obsoletes:	celtx-dictionary
-Requires:	celtx
+#Summary:	Celtx for sl language
+#License:	MPL-like
+#Group:		Office
+#URL:		http://www.celtx.com
+#Obsoletes:	celtx-dictionary
+#Requires:	celtx
 
-%description -n celtx-sl
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
-Package for sl language
+#%description -n celtx-sl
+#Celtx is the world's first fully integrated solution for media
+#pre-production and collaboration. It replaces old fashioned 'paper,
+#pen & binder' media creation with a digital approach to writing and
+#organizing that's more complete, simpler to work with, and easier
+#to share.
+#Package for sl language
 
 #xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-sl.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-sl
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
+#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-sl.desktop <<EOF
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=Celtx
+#Comment=Screenplay Editor
+#Exec=%{_bindir}/celtx-sl
+#Icon=celtx.png
+#Terminal=false
+#Type=Application
+#Categories=X-MandrivaLinux-Office-Wordprocessors;
+#EOF
 
-%files -n celtx-sl
-%defattr(0755,root,0755)
-%_bindir/celtx-sl
-%_libdir/celtx-sl
+#%files -n celtx-sl
+#%defattr(0755,root,0755)
+#%_bindir/celtx-sl
+#%_libdir/celtx-sl
 #---------------------------------
 
 #---------------------------------
 # tr
-%package -n celtx-tr
+#%package -n celtx-tr
+#
+#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#Summary:	Celtx for tr language
+#License:	MPL-like
+#Group:		Office
+#URL:		http://www.celtx.com
+#Obsoletes:	celtx-dictionary
+#Requires:	celtx
+#
+#%description -n celtx-tr
+#Celtx is the world's first fully integrated solution for media
+#pre-production and collaboration. It replaces old fashioned 'paper,
+#pen & binder' media creation with a digital approach to writing and
+#organizing that's more complete, simpler to work with, and easier
+#to share.
+#Package for tr language
+#
+##xdg menu entry
+#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-tr.desktop <<EOF
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=Celtx
+#Comment=Screenplay Editor
+#Exec=%{_bindir}/celtx-tr
+#Icon=celtx.png
+#Terminal=false
+#Type=Application
+#Categories=X-MandrivaLinux-Office-Wordprocessors;
+#EOF
 
-Summary:	Celtx for tr language
-License:	MPL-like
-Group:		Office
-URL:		http://www.celtx.com
-Obsoletes:	celtx-dictionary
-Requires:	celtx
-
-%description -n celtx-tr
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
-Package for tr language
-
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-tr.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-tr
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
-%files -n celtx-tr
-%defattr(0755,root,0755)
-%_bindir/celtx-tr
-%_libdir/celtx-tr
+#%files -n celtx-tr
+#%defattr(0755,root,0755)
+#%_bindir/celtx-tr
+#%_libdir/celtx-tr
 #---------------------------------
 
 %prep
