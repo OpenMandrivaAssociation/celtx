@@ -1,10 +1,10 @@
 %define name	celtx
 %define version	1.0
-%define release	%mkrel 5
+%define release	%mkrel 6
 %define Summary	Celtx : preproduction media application
 
 #define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
-%define is10list	en-US pt-BR ca cs de es-ES fr
+%define is10list	en-US pt-BR ca cs de es-ES fr it
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
@@ -64,24 +64,11 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for en_US language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-en-US.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-en-US
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-en-US
 %defattr(0755,root,root,0755)
 %_bindir/celtx-en-US
 %_libdir/celtx-en-US
+%{_datadir}/applications/celtx-en-US.desktop
 #---------------------------------
 
 #---------------------------------
@@ -106,24 +93,11 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for pt-BR language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-pt-BR.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-pt-BR
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-pt-BR
 %defattr(0755,root,root,0755)
 %_bindir/celtx-pt-BR
 %_libdir/celtx-pt-BR
+%{_datadir}/applications/celtx-pt-BR.desktop
 #---------------------------------
 
 #---------------------------------
@@ -148,24 +122,11 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for ca language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ca.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-ca
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-ca
 %defattr(0755,root,root,0755)
 %_bindir/celtx-ca
 %_libdir/celtx-ca
+%{_datadir}/applications/celtx-ca.desktop
 #---------------------------------
 
 #---------------------------------
@@ -190,24 +151,11 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for cs language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-cs.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-cs
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-cs
 %defattr(0755,root,root,0755)
 %_bindir/celtx-cs
 %_libdir/celtx-cs
+%{_datadir}/applications/celtx-cs.desktop
 #---------------------------------
 
 #---------------------------------
@@ -232,24 +180,11 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for de language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-de.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-de
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-de
 %defattr(0755,root,root,0755)
 %_bindir/celtx-de
 %_libdir/celtx-de
+%{_datadir}/applications/celtx-de.desktop
 #---------------------------------
 
 #---------------------------------
@@ -274,24 +209,11 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for es-ES language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-es-ES.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-es-ES
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-es-ES
 %defattr(0755,root,root,0755)
 %_bindir/celtx-es-ES
 %_libdir/celtx-es-ES
+%{_datadir}/applications/celtx-es-ES.desktop
 #---------------------------------
 
 #---------------------------------
@@ -316,66 +238,40 @@ organizing that's more complete, simpler to work with, and easier
 to share.
 Package for fr language
 
-#xdg menu entry
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-fr.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=Celtx
-Comment=Screenplay Editor
-Exec=%{_bindir}/celtx-fr
-Icon=celtx.png
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
-EOF
-
 %files -n celtx-fr
 %defattr(0755,root,root,0755)
 %_bindir/celtx-fr
 %_libdir/celtx-fr
+%{_datadir}/applications/celtx-fr.desktop
 #---------------------------------
 
 #---------------------------------
 # it
-#%package -n celtx-it
+%package -n celtx-it
 
-#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-#Summary:	Celtx for it language
-#License:	MPL-like
-#Group:		Office
-#URL:		http://www.celtx.com
-#Obsoletes:	celtx-dictionary
-#Requires:	celtx
-#
-#%description -n celtx-it
-#Celtx is the world's first fully integrated solution for media
-#pre-production and collaboration. It replaces old fashioned 'paper,
-#pen & binder' media creation with a digital approach to writing and
-#organizing that's more complete, simpler to work with, and easier
-#to share.
-#Package for it language
+Summary:	Celtx for it language
+License:	MPL-like
+Group:		Office
+URL:		http://www.celtx.com
+Obsoletes:	celtx-dictionary
+Requires:	celtx
 
-#xdg menu entry
-#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-it.desktop <<EOF
-#[Desktop Entry]
-#Encoding=UTF-8
-#Name=Celtx
-#Comment=Screenplay Editor
-#Exec=%{_bindir}/celtx-it
-#Icon=celtx.png
-#Terminal=false
-#Type=Application
-#Categories=X-MandrivaLinux-Office-Wordprocessors;
-#EOF
+%description -n celtx-it
+Celtx is the world's first fully integrated solution for media
+pre-production and collaboration. It replaces old fashioned 'paper,
+pen & binder' media creation with a digital approach to writing and
+organizing that's more complete, simpler to work with, and easier
+to share.
+Package for it language
 
-#%files -n celtx-it
-#%defattr(0755,root,root,0755)
-#%_bindir/celtx-it
-#%_libdir/celtx-it
+%files -n celtx-it
+%defattr(0755,root,root,0755)
+%_bindir/celtx-it
+%_libdir/celtx-it
+%{_datadir}/applications/celtx-it.desktop
 #---------------------------------
 
 #---------------------------------
@@ -399,27 +295,12 @@ EOF
 #organizing that's more complete, simpler to work with, and easier
 #to share.
 #Package for ro language
-#
-##xdg menu entry
-#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ro.desktop <<EOF
-#[Desktop Entry]
-#Encoding=UTF-8
-#Name=Celtx
-#Comment=Screenplay Editor
-#Exec=%{_bindir}/celtx-ro
-#Icon=celtx.png
-#Terminal=false
-#Type=Application
-#Categories=X-MandrivaLinux-Office-Wordprocessors;
-#EOF
 
 #%files -n celtx-ro
 #%defattr(0755,root,root,0755)
 #%_bindir/celtx-ro
 #%_libdir/celtx-ro
 #---------------------------------
-
 
 #---------------------------------
 # ru
@@ -442,20 +323,6 @@ EOF
 #organizing that's more complete, simpler to work with, and easier
 #to share.
 #Package for ru language
-
-#xdg menu entry
-#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-ru.desktop <<EOF
-#[Desktop Entry]
-#Encoding=UTF-8
-#Name=Celtx
-#Comment=Screenplay Editor
-#Exec=%{_bindir}/celtx-ru
-#Icon=celtx.png
-#Terminal=false
-#Type=Application
-#Categories=X-MandrivaLinux-Office-Wordprocessors;
-#EOF
 
 #%files -n celtx-ru
 #%defattr(0755,root,root,0755)
@@ -485,20 +352,6 @@ EOF
 #to share.
 #Package for sl language
 
-#xdg menu entry
-#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-sl.desktop <<EOF
-#[Desktop Entry]
-#Encoding=UTF-8
-#Name=Celtx
-#Comment=Screenplay Editor
-#Exec=%{_bindir}/celtx-sl
-#Icon=celtx.png
-#Terminal=false
-#Type=Application
-#Categories=X-MandrivaLinux-Office-Wordprocessors;
-#EOF
-
 #%files -n celtx-sl
 #%defattr(0755,root,0755)
 #%_bindir/celtx-sl
@@ -526,20 +379,6 @@ EOF
 #organizing that's more complete, simpler to work with, and easier
 #to share.
 #Package for tr language
-#
-##xdg menu entry
-#install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
-#cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-tr.desktop <<EOF
-#[Desktop Entry]
-#Encoding=UTF-8
-#Name=Celtx
-#Comment=Screenplay Editor
-#Exec=%{_bindir}/celtx-tr
-#Icon=celtx.png
-#Terminal=false
-#Type=Application
-#Categories=X-MandrivaLinux-Office-Wordprocessors;
-#EOF
 
 #%files -n celtx-tr
 #%defattr(0755,root,0755)
@@ -579,6 +418,20 @@ for l10n in %is10list; do
 	sed -i -e "s!/usr/local/lib!%{_libdir}!g" ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
 	sed -i -e "s!%{name}-%{version}!%{name}-${l10n}!g" ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
 	mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name}-bin ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name}-${l10n}-bin
+	#xdg menu entry
+	install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+	cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-${l10n}.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Celtx
+Comment=Screenplay Editor
+Exec=%{_bindir}/celtx-${l10n}
+Icon=celtx.png
+Terminal=false
+Type=Application
+Categories=X-MandrivaLinux-Office-Wordprocessors;
+EOF
+
 done
 
 %clean
