@@ -408,9 +408,9 @@ for l10n in %is10list; do
 	sed -i -e s/objdir/objdir-$l10n/ .mozconfig
 	sed -i -e s/en-US/$l10n/ .mozconfig
 	# no debug make
-	#make -f client.mk build >/dev/null 2>&1
+	make -f client.mk build >/dev/null 2>&1
 	# with debug make
-	make -f client.mk build
+	# make -f client.mk build
 	find ../objdir-$l10n -type f -name "*.o" -exec rm {} \;
 	find ../objdir-$l10n -type f -name "*.a" -exec rm {} \;
 done
