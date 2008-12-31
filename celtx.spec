@@ -5,6 +5,7 @@
 
 #define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
 %define is10list	en-US pt-BR ca cs de es-ES fr it
+#define is10list	en-US
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
@@ -24,7 +25,8 @@ BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libIDL-devel
-BuildRequires:  zip tcsh
+BuildRequires:  zip
+BuildRequires:	tcsh
 BuildRequires:  libxft-devel
 BuildRequires:  gtk+2-devel >= 2.4.0
 BuildRequires:  gnome-vfs2-devel
@@ -55,6 +57,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-en_US
 
 %description -n celtx-en-US
 Celtx is the world's first fully integrated solution for media
@@ -84,6 +87,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-pt_BR
 
 %description -n celtx-pt-BR
 Celtx is the world's first fully integrated solution for media
@@ -113,6 +117,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-ca_ES
 
 %description -n celtx-ca
 Celtx is the world's first fully integrated solution for media
@@ -120,7 +125,7 @@ pre-production and collaboration. It replaces old fashioned 'paper,
 pen & binder' media creation with a digital approach to writing and
 organizing that's more complete, simpler to work with, and easier
 to share.
-Package for ca language
+Package for ca-ES language
 
 %files -n celtx-ca
 %defattr(0755,root,root,0755)
@@ -142,6 +147,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-cs_CZ
 
 %description -n celtx-cs
 Celtx is the world's first fully integrated solution for media
@@ -149,7 +155,7 @@ pre-production and collaboration. It replaces old fashioned 'paper,
 pen & binder' media creation with a digital approach to writing and
 organizing that's more complete, simpler to work with, and easier
 to share.
-Package for cs language
+Package for cs_CZ language
 
 %files -n celtx-cs
 %defattr(0755,root,root,0755)
@@ -171,6 +177,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-de_DE
 
 %description -n celtx-de
 Celtx is the world's first fully integrated solution for media
@@ -178,7 +185,7 @@ pre-production and collaboration. It replaces old fashioned 'paper,
 pen & binder' media creation with a digital approach to writing and
 organizing that's more complete, simpler to work with, and easier
 to share.
-Package for de language
+Package for de_DE language
 
 %files -n celtx-de
 %defattr(0755,root,root,0755)
@@ -200,6 +207,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-es_ES
 
 %description -n celtx-es-ES
 Celtx is the world's first fully integrated solution for media
@@ -229,6 +237,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-fr_FR
 
 %description -n celtx-fr
 Celtx is the world's first fully integrated solution for media
@@ -236,7 +245,7 @@ pre-production and collaboration. It replaces old fashioned 'paper,
 pen & binder' media creation with a digital approach to writing and
 organizing that's more complete, simpler to work with, and easier
 to share.
-Package for fr language
+Package for fr_FR language
 
 %files -n celtx-fr
 %defattr(0755,root,root,0755)
@@ -258,6 +267,7 @@ Group:		Office
 URL:		http://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
+Requires:	myspell-it_IT
 
 %description -n celtx-it
 Celtx is the world's first fully integrated solution for media
@@ -265,7 +275,7 @@ pre-production and collaboration. It replaces old fashioned 'paper,
 pen & binder' media creation with a digital approach to writing and
 organizing that's more complete, simpler to work with, and easier
 to share.
-Package for it language
+Package for it_IT language
 
 %files -n celtx-it
 %defattr(0755,root,root,0755)
@@ -394,10 +404,13 @@ tar -jxf %{SOURCE1}
 %build
 for l10n in %is10list; do
 	cp -f mozconfig-nodebug-linux .mozconfig
-	rm -rf ../objdir-$l10n
+	%{__rm} -rf ../objdir-$l10n
 	sed -i -e s/objdir/objdir-$l10n/ .mozconfig
 	sed -i -e s/en-US/$l10n/ .mozconfig
-	make -f client.mk build >/dev/null 2>&1
+	# no debug make
+	#make -f client.mk build >/dev/null 2>&1
+	# with debug make
+	make -f client.mk build
 	find ../objdir-$l10n -type f -name "*.o" -exec rm {} \;
 	find ../objdir-$l10n -type f -name "*.a" -exec rm {} \;
 done
@@ -413,7 +426,14 @@ mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-32.png $RPM_BUILD_ROOT%{_iconsdir}/celtx.pn
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-48.png $RPM_BUILD_ROOT%{_iconsdir}/large/celtx.png
 for l10n in %is10list; do
 	make -C ../objdir-$l10n/celtx/installer
+	#dont need the tar.gz file
+	%{__rm} -rf ../objdir-$l10n/dist/%{name}-*.tar.gz
 	cp -a ../objdir-$l10n/dist/celtx ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n
+	%{__rm} -rf ../objdir-$l10n
+	#dont need dictionary : use myspell provides
+	%{__rm} -rf ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/dictionaries
+	ln -s %{_datadir}/dict/ooo ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/dictionaries
+	#adapt the bin script
 	mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name} ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
 	sed -i -e "s!/usr/local/lib!%{_libdir}!g" ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
 	sed -i -e "s!%{name}-%{version}!%{name}-${l10n}!g" ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
