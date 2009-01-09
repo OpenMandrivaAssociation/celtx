@@ -411,8 +411,11 @@ for l10n in %is10list; do
 	make -f client.mk build >/dev/null 2>&1
 	# with debug make
 	# make -f client.mk build
-	find ../objdir-$l10n -type f -name "*.o" -exec rm {} \;
-	find ../objdir-$l10n -type f -name "*.a" -exec rm {} \;
+	find ../objdir-$l10n -type f -name "*.o" -exec %{__rm} {} \;
+	find ../objdir-$l10n -type f -name "*.a" -exec %{__rm} {} \;
+	find ../objdir-$l10n -type f -name "*.h" -exec %{__rm} {} \;
+	find ../objdir-$l10n -type f -name "*.cpp" -exec %{__rm} {} \;
+	find ../objdir-$l10n -type f -name "*.c" -exec %{__rm} {} \;
 done
 
 %install
@@ -426,10 +429,8 @@ mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-32.png $RPM_BUILD_ROOT%{_iconsdir}/celtx.pn
 mv $RPM_BUILD_ROOT%{_iconsdir}/celtx-48.png $RPM_BUILD_ROOT%{_iconsdir}/large/celtx.png
 for l10n in %is10list; do
 	make -C ../objdir-$l10n/celtx/installer
-	#dont need the tar.gz file
-	%{__rm} -rf ../objdir-$l10n/dist/%{name}-*.tar.gz
 	cp -a ../objdir-$l10n/dist/celtx ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n
-	%{__rm} -rf ../objdir-$l10n
+	#%{__rm} -rf ../objdir-$l10n
 	#dont need dictionary : use myspell provides
 	%{__rm} -rf ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/dictionaries
 	ln -s %{_datadir}/dict/ooo ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/dictionaries
