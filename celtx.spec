@@ -1,6 +1,6 @@
 %define name	celtx
-%define version	1.0
-%define release	%mkrel 6
+%define version	2.0.1
+%define release	%mkrel 1
 %define Summary	Celtx : preproduction media application
 
 #define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
@@ -18,8 +18,8 @@ Release:	%release
 License:	MPL-like
 Group:		Office 
 URL:		http://www.celtx.com
-Source0:	http://www.celtx.com/download/%{name}-10-src.tar.bz2
-Source1:	http://www.celtx.com/download/%{name}-10-l10n.tar.bz2
+Source0:	http://www.celtx.com/download/%{name}-201-src.tar.bz2
+Source1:	http://www.celtx.com/download/%{name}-201-l10n.tar.bz2
 Source2:	celtx-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	libjpeg-devel
@@ -397,11 +397,13 @@ Package for it_IT language
 #---------------------------------
 
 %prep
-%setup -q -n mozilla
+#%setup -q -n mozilla
+%setup -q -n celtx-201-src
 cd ../
 tar -jxf %{SOURCE1}
 
 %build
+cd mozilla
 for l10n in %is10list; do
 	cp -f mozconfig-nodebug-linux .mozconfig
 	%{__rm} -rf ../objdir-$l10n
@@ -418,6 +420,7 @@ for l10n in %is10list; do
 done
 
 %install
+cd mozilla
 %{__rm} -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_libdir}
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
