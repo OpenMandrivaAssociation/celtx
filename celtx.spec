@@ -4,7 +4,7 @@
 %define Summary	Celtx : preproduction media application
 
 #define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
-%define is10list	en-US pt-BR ca cs de es-ES fr it
+%define is10list	en-US pt-BR ca cs de es-ES fr
 #define is10list	en-US
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
@@ -256,32 +256,32 @@ Package for fr_FR language
 
 #---------------------------------
 # it
-%package -n celtx-it
+#package -n celtx-it
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-Summary:	Celtx for it language
-License:	MPL-like
-Group:		Office
-URL:		http://www.celtx.com
-Obsoletes:	celtx-dictionary
-Requires:	celtx
-Requires:	myspell-it_IT
+#Summary:	Celtx for it language
+#License:	MPL-like
+#Group:		Office
+#URL:		http://www.celtx.com
+#Obsoletes:	celtx-dictionary
+#Requires:	celtx
+#Requires:	myspell-it_IT
 
-%description -n celtx-it
-Celtx is the world's first fully integrated solution for media
-pre-production and collaboration. It replaces old fashioned 'paper,
-pen & binder' media creation with a digital approach to writing and
-organizing that's more complete, simpler to work with, and easier
-to share.
-Package for it_IT language
+#%description -n celtx-it
+#Celtx is the world's first fully integrated solution for media
+#pre-production and collaboration. It replaces old fashioned 'paper,
+#pen & binder' media creation with a digital approach to writing and
+#organizing that's more complete, simpler to work with, and easier
+#to share.
+#Package for it_IT language
 
-%files -n celtx-it
-%defattr(0755,root,root,0755)
-%_bindir/celtx-it
-%_libdir/celtx-it
-%{_datadir}/applications/celtx-it.desktop
+#%files -n celtx-it
+#%defattr(0755,root,root,0755)
+#%_bindir/celtx-it
+#%_libdir/celtx-it
+#%{_datadir}/applications/celtx-it.desktop
 #---------------------------------
 
 #---------------------------------
