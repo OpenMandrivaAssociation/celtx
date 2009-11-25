@@ -1,25 +1,17 @@
-%define name	celtx
-%define version	2.0.1
-%define release	%mkrel 1
-%define Summary	Celtx : preproduction media application
-
-#define is10list	en-US pt-BR ca cs de es-ES fr it ro ru sl tr
 %define is10list	en-US pt-BR ca cs de es-ES fr
-#define is10list	en-US
 
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 %define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-Summary:	%Summary
-Name:		%name
-Version:	%version
-Release:	%release
+Name:		celtx
+Version:	2.5.1
+Release:	%mkrel 1
+Summary:	Celtx : preproduction media application
 License:	MPL-like
 Group:		Office 
 URL:		http://www.celtx.com
-Source0:	http://www.celtx.com/download/%{name}-201-src.tar.bz2
-Source1:	http://www.celtx.com/download/%{name}-201-l10n.tar.bz2
+Source0:	http://www.celtx.com/download/%{name}-2-5-1-src.tar.bz2
+Source1:	http://www.celtx.com/download/%{name}-2-5-1-l10n.tar.bz2
 Source2:	celtx-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	libjpeg-devel
@@ -398,9 +390,10 @@ Package for fr_FR language
 
 %prep
 #%setup -q -n mozilla
-%setup -q -n celtx-201-src
+%setup -q -n celtx-2-5-1-src
 cd ../
 tar -jxf %{SOURCE1}
+mv celtx-2-5-1-l10n/l10n celtx-2-5-1-src/l10n
 
 %build
 cd mozilla
@@ -412,7 +405,7 @@ for l10n in %is10list; do
 	# no debug make
 	make -f client.mk build >/dev/null 2>&1
 	# with debug make
-	# make -f client.mk build
+	#make -f client.mk build
 	# for space optimization we do installer in the build process and copy the resultat in a tmp dir
 	make -C ../objdir-$l10n/celtx/installer
 	cp -a ../objdir-$l10n/dist/celtx ../%{name}-$l10n
