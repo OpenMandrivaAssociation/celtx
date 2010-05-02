@@ -5,7 +5,7 @@
 
 Name:		celtx
 Version:	2.5.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Celtx : preproduction media application
 License:	MPL-like
 Group:		Office 
@@ -433,17 +433,17 @@ for l10n in %is10list; do
 	sed -i -e "s!%{name}-%{version}!%{name}-${l10n}!g" ${RPM_BUILD_ROOT}%{_bindir}/%{name}-$l10n
 	mv ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name}-bin ${RPM_BUILD_ROOT}%{_libdir}/%{name}-$l10n/%{name}-${l10n}-bin
 	#xdg menu entry
-	install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/applications
+	mkdir -p ${RPM_BUILD_ROOT}%{_datadir}/applications
 	cat > ${RPM_BUILD_ROOT}%{_datadir}/applications/celtx-${l10n}.desktop <<EOF
 [Desktop Entry]
 Encoding=UTF-8
 Name=Celtx
 Comment=Screenplay Editor
 Exec=%{_bindir}/celtx-${l10n}
-Icon=celtx.png
+Icon=celtx
 Terminal=false
 Type=Application
-Categories=X-MandrivaLinux-Office-Wordprocessors;
+Categories=Office;WordProcessor;
 EOF
 
 done
