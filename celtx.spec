@@ -402,10 +402,7 @@ for l10n in %is10list; do
 	%{__rm} -rf ../objdir-$l10n
 	sed -i -e s/objdir/objdir-$l10n/ .mozconfig
 	sed -i -e s/en-US/$l10n/ .mozconfig
-	# no debug make
-	make -f client.mk build >/dev/null 2>&1
-	# with debug make
-	#make -f client.mk build
+	make -f client.mk build
 	# for space optimization we do installer in the build process and copy the resultat in a tmp dir
 	make -C ../objdir-$l10n/celtx/installer
 	cp -a ../objdir-$l10n/dist/celtx ../%{name}-$l10n
