@@ -14,16 +14,16 @@ Source0:	http://www.celtx.com/download/%{name}-2-5-1-src.tar.bz2
 Source1:	http://www.celtx.com/download/%{name}-2-5-1-l10n.tar.bz2
 Source2:	celtx-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
-BuildRequires:	libjpeg-devel
-BuildRequires:	libpng-devel
-BuildRequires:	libIDL-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(libIDL-2.0)
 BuildRequires:  zip
 BuildRequires:	tcsh
-BuildRequires:  libxft-devel
-BuildRequires:  gtk+2-devel >= 2.4.0
-BuildRequires:  gnome-vfs2-devel
-BuildRequires:	libgnomeui2-devel
-BuildRequires:  krb-devel
+BuildRequires:  pkgconfig(xft) 
+BuildRequires:  pkgconfig(gdk-2.0) >= 2.4.0
+BuildRequires:  pkgconfig(gnome-vfs-2.0)
+BuildRequires:	pkgconfig(libgnomeui-2.0)
+BuildRequires:  krb5-devel
 
 
 #---------------------------------
