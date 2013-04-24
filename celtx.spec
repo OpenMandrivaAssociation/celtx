@@ -5,7 +5,7 @@
 
 Name:		celtx
 Version:	2.5.1
-Release:	%mkrel 3
+Release:	4
 Summary:	Celtx : preproduction media application
 License:	MPL-like
 Group:		Office 
@@ -66,10 +66,6 @@ Package for en_US language
 #---------------------------------
 # pt-BR
 %package -n celtx-pt-BR
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 Summary:	Celtx for pt-BR language
 License:	MPL-like
 Group:		Office
@@ -96,10 +92,6 @@ Package for pt-BR language
 #---------------------------------
 # ca
 %package -n celtx-ca
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 Summary:	Celtx for ca language
 License:	MPL-like
 Group:		Office
