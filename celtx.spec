@@ -1,7 +1,7 @@
 %define is10list	en-US pt-BR ca cs de es-ES fr
 
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
+%define __noautoreq 'libnspr4|libplc4|libplds4|libnss|libsmime3|libsoftokn|libssl3|libgtkembedmoz|libxpcom'
+%define __noautoprov 'libnspr4|libplc4|libplds4|libnss|libsmime3|libsoftokn|libssl3|libgtkembedmoz|libxpcom'
 
 Name:		celtx
 Version:	2.5.1
@@ -39,9 +39,6 @@ Celtx common files
 #---------------------------------
 # en_US
 %package -n celtx-en-US
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
 Summary:	Celtx for en-US language
 License:	MPL-like
@@ -129,10 +126,6 @@ Package for ca-ES language
 #---------------------------------
 # cs
 %package -n celtx-cs
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 Summary:	Celtx for cs language
 License:	MPL-like
 Group:		Office
@@ -159,10 +152,6 @@ Package for cs_CZ language
 #---------------------------------
 # de
 %package -n celtx-de
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 Summary:	Celtx for de language
 License:	MPL-like
 Group:		Office
@@ -189,10 +178,6 @@ Package for de_DE language
 #---------------------------------
 # es-ES
 %package -n celtx-es-ES
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 Summary:	Celtx for es-ES language
 License:	MPL-like
 Group:		Office
@@ -219,10 +204,6 @@ Package for es-ES language
 #---------------------------------
 # fr
 %package -n celtx-fr
-
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-%define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 Summary:	Celtx for fr language
 License:	MPL-like
 Group:		Office
@@ -249,10 +230,6 @@ Package for fr_FR language
 #---------------------------------
 # it
 #package -n celtx-it
-
-#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 #Summary:	Celtx for it language
 #License:	MPL-like
 #Group:		Office
@@ -279,10 +256,6 @@ Package for fr_FR language
 #---------------------------------
 # ro
 #%package -n celtx-ro
-
-#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 #Summary:	Celtx for ro language
 #License:	MPL-like
 #Group:		Office
@@ -307,10 +280,6 @@ Package for fr_FR language
 #---------------------------------
 # ru
 #%package -n celtx-ru
-
-#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 #Summary:	Celtx for ru language
 #License:	MPL-like
 #Group:		Office
@@ -335,10 +304,6 @@ Package for fr_FR language
 #---------------------------------
 # sl
 #%package -n celtx-sl
-
-#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 #Summary:	Celtx for sl language
 #License:	MPL-like
 #Group:		Office
@@ -363,10 +328,6 @@ Package for fr_FR language
 #---------------------------------
 # tr
 #%package -n celtx-tr
-#
-#define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-#define _provides_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 #Summary:	Celtx for tr language
 #License:	MPL-like
 #Group:		Office
@@ -411,7 +372,6 @@ done
 
 %install
 cd mozilla
-%{__rm} -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_libdir}
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
 mkdir -p $RPM_BUILD_ROOT%{_iconsdir}/{mini,large}
@@ -445,15 +405,3 @@ EOF
 
 done
 
-%clean
-%{__rm} -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
