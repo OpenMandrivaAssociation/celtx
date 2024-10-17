@@ -9,7 +9,7 @@ Release:	4
 Summary:	Celtx : preproduction media application
 License:	MPL-like
 Group:		Office 
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Source0:	http://www.celtx.com/download/%{name}-2-5-1-src.tar.bz2
 Source1:	http://www.celtx.com/download/%{name}-2-5-1-l10n.tar.bz2
 Source2:	celtx-icons.tar.bz2
@@ -43,7 +43,7 @@ Celtx common files
 Summary:	Celtx for en-US language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-en_US
@@ -69,7 +69,7 @@ Package for en_US language
 Summary:	Celtx for pt-BR language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-pt_BR
@@ -95,7 +95,7 @@ Package for pt-BR language
 Summary:	Celtx for ca language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-ca_ES
@@ -121,7 +121,7 @@ Package for ca-ES language
 Summary:	Celtx for cs language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-cs_CZ
@@ -147,7 +147,7 @@ Package for cs_CZ language
 Summary:	Celtx for de language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-de_DE
@@ -173,7 +173,7 @@ Package for de_DE language
 Summary:	Celtx for es-ES language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-es_ES
@@ -199,7 +199,7 @@ Package for es-ES language
 Summary:	Celtx for fr language
 License:	MPL-like
 Group:		Office
-URL:		http://www.celtx.com
+URL:		https://www.celtx.com
 Obsoletes:	celtx-dictionary
 Requires:	celtx
 Requires:	myspell-fr_FR
